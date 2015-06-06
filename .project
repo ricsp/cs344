@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>cs344-Debug@cs344</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.make.core.makeBuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
+					<value>clean</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableCleanBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.append_environment</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.stopOnError</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enabledIncrementalBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.command</key>
+					<value>/usr/bin/make</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.contents</key>
+					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.inc</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.arguments</key>
+					<value>-j8</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildLocation</key>
+					<value>/home/rspica/Repositories/cs344</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.environment</key>
+					<value>VERBOSE=1|CMAKE_NO_VERBOSE=1|</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.auto</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.target.clean</key>
+					<value>clean</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildArguments</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.build.location</key>
+					<value>/home/rspica/Repositories/cs344</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
+					<value>all</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.core.errorOutputParser</key>
+					<value>org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;</value>
+				</dictionary>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.make.core.ScannerConfigBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.make.core.makeNature</nature>
+		<nature>org.eclipse.cdt.make.core.ScannerConfigNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[Subprojects]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1//student_func.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/student_func.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Source Files/reference_calc.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/reference_calc.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Source Files/compare.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/compare.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Header Files/reference_calc.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/reference_calc.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Header Files/compare.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/compare.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Header Files/timer.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/timer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Header Files/utils.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/utils.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW1/Object Files/HW1_generated_student_func.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 1/CMakeFiles/HW1.dir/./HW1_generated_student_func.cu.o</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2//student_func.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/student_func.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Source Files/reference_calc.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/reference_calc.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Source Files/compare.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/compare.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Header Files/reference_calc.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/reference_calc.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Header Files/compare.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/compare.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Header Files/timer.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/timer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Header Files/utils.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/utils.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW2/Object Files/HW2_generated_student_func.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 2/CMakeFiles/HW2.dir/./HW2_generated_student_func.cu.o</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3//HW3.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/HW3.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3//student_func.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/student_func.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Source Files/loadSaveImage.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/loadSaveImage.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Source Files/reference_calc.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/reference_calc.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Source Files/compare.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/compare.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Header Files/reference_calc.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/reference_calc.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Header Files/compare.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/compare.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Header Files/timer.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/timer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Header Files/loadSaveImage.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/loadSaveImage.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Header Files/utils.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/utils.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Object Files/HW3_generated_HW3.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/CMakeFiles/HW3.dir/./HW3_generated_HW3.cu.o</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW3/Object Files/HW3_generated_student_func.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 3/CMakeFiles/HW3.dir/./HW3_generated_student_func.cu.o</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4//student_func.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/student_func.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4//HW4.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/HW4.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Source Files/main.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/main.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Source Files/loadSaveImage.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/loadSaveImage.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Source Files/reference_calc.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/reference_calc.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Source Files/compare.cpp</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/compare.cpp</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Header Files/reference_calc.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/reference_calc.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Header Files/compare.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/compare.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Header Files/timer.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/timer.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Header Files/loadSaveImage.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/loadSaveImage.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Header Files/utils.h</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/utils.h</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Object Files/HW4_generated_student_func.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/CMakeFiles/HW4.dir/./HW4_generated_student_func.cu.o</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] HW4/Object Files/HW4_generated_HW4.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Problem Sets/Problem Set 4/CMakeFiles/HW4.dir/./HW4_generated_HW4.cu.o</location>
+		</link>
+	</linkedResources>
+</projectDescription>
