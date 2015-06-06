@@ -55,6 +55,29 @@ int main(int argc, char **argv) {
       std::cerr << "Usage: ./HW1 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
       exit(1);
   }
+
+  int devCount;
+  cudaGetDeviceCount(&devCount);
+  std::cout << "CUDA Devices: " << devCount << std::endl << std::endl;
+
+  for(int i = 0; i < devCount; ++i){
+	  const int kb = 1024;
+	  const int mb = kb * kb;
+	  cudaDeviceProp props;
+	  cudaGetDeviceProperties(&props, i);
+	  std::cout << i << ": " << props.name << ": " << props.major << "." << props.minor << std::endl;
+	  std::cout << "  Global memory:   " << props.totalGlobalMem / mb << "mb" << std::endl;
+	  std::cout << "  Shared memory:   " << props.sharedMemPerBlock / kb << "kb" << std::endl;
+	  std::cout << "  Constant memory: " << props.totalConstMem / kb << "kb" << std::endl;
+	  std::cout << "  Block registers: " << props.regsPerBlock << std::endl << std::endl;
+
+	  std::cout << "  Warp size:         " << props.warpSize << std::endl;
+	  std::cout << "  Threads per block: " << props.maxThreadsPerBlock << std::endl;
+	  std::cout << "  Max block dimensions: [ " << props.maxThreadsDim[0] << ", " << props.maxThreadsDim[1]  << ", " << props.maxThreadsDim[2] << " ]" << std::endl;
+	  std::cout << "  Max grid dimensions:  [ " << props.maxGridSize[0] << ", " << props.maxGridSize[1]  << ", " << props.maxGridSize[2] << " ]" << std::endl;
+	  std::cout << std::endl;
+  }
+
   //load the image and give us our input and output pointers
   preProcess(&h_rgbaImage, &h_greyImage, &d_rgbaImage, &d_greyImage, input_file);
 
@@ -74,6 +97,7 @@ int main(int argc, char **argv) {
   }
 
   size_t numPixels = numRows()*numCols();
+  std::cout << "R: " << numRows() << " C: " << numCols() << std::endl;
   checkCudaErrors(cudaMemcpy(h_greyImage, d_greyImage, sizeof(unsigned char) * numPixels, cudaMemcpyDeviceToHost));
 
   //check results and output the grey image
