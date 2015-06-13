@@ -80,6 +80,129 @@
 */
 
 #include "utils.h"
+#include "stdio.h"
+#include <float.h>
+
+#define MAX(A,B) (A>B ? A : B)
+#define MIN(A,B) (A<B ? A : B)
+
+__global__
+void reduce_min(float * d_out, const float * d_in, const unsigned int size){
+
+  extern __shared__ float smin[];
+
+  const unsigned int id = blockIdx.x * blockDim.x + threadIdx.x;
+  const unsigned int tid = threadIdx.x;
+
+  if (id<size){
+	  smin[tid] = d_in[id];
+  } else {
+	  smin[tid] = FLT_MAX;
+  }
+  __syncthreads();
+
+  for (unsigned int s = blockDim.x/2 ; s>0; s>>=1){
+    if (tid < s){
+    	smin[tid] = MIN(smin[tid], smin[tid+s]);
+    }
+    __syncthreads();
+  }
+
+  if (tid == 0){
+      d_out[blockIdx.x] = smin[tid];
+  }
+
+}
+
+__global__
+void reduce_max(float * d_out, const float * d_in, const unsigned int size){
+
+  extern __shared__ float smin[];
+
+  const unsigned int id = blockIdx.x * blockDim.x + threadIdx.x;
+  const unsigned int tid = threadIdx.x;
+
+  if (id<size){
+	  smin[tid] = d_in[id];
+  } else {
+	  smin[tid] = FLT_MIN;
+  }
+  __syncthreads();
+
+  for (unsigned int s = blockDim.x>>1; s>0; s>>=1){
+    if (tid < s){
+    	smin[tid] = MAX(smin[tid], smin[tid+s]);
+    }
+    __syncthreads();
+  }
+
+  if (tid == 0){
+      d_out[blockIdx.x] = smin[tid];
+  }
+
+}
+
+
+__global__
+void histogram(unsigned int * d_histogram, const float * d_logLuminance,
+		const float min_logLum, const float range_logLum,
+		const unsigned int numBins,
+		const unsigned int size){
+
+  const unsigned int id = blockIdx.x * blockDim.x + threadIdx.x;
+
+  if (id<size){
+	  const unsigned int bin = MIN(numBins-1, (d_logLuminance[id] - min_logLum) / range_logLum * numBins);
+	  atomicAdd(&d_histogram[bin],1);
+  }
+
+}
+
+__global__
+void hillis(unsigned int *g_odata, size_t n)  {
+	extern __shared__ unsigned int data[];  // allocated on invocation
+
+	int thid = threadIdx.x;
+	unsigned int *g_idata = g_odata;
+
+	// load input into shared memory
+	data[2*thid] = g_idata[2*thid];
+	data[2*thid+1] = g_idata[2*thid+1];
+
+	// pre-scan
+	unsigned int dp = 1;
+	for (unsigned int s = n>>1; s>0; s>>=1){
+		__syncthreads();
+		if(thid<s){
+			unsigned int i = dp*(2*thid+1)-1;
+			unsigned int j = dp*(2*thid+2)-1;
+			data[j] += data[i];
+		}
+		dp <<= 1;
+	}
+
+	if(thid == 0) data[n - 1] = 0;
+
+	// down-sweep
+	for(unsigned int s = 1; s < n; s <<= 1) {
+		dp >>= 1;
+		__syncthreads();
+
+		if(thid < s) {
+			unsigned int i = dp*(2*thid+1)-1;
+			unsigned int j = dp*(2*thid+2)-1;
+
+			const unsigned int t = data[j];
+			data[j] += data[i];
+			data[i] = t;
+		}
+	}
+
+	// write results to device memory
+	g_odata[2*thid] = data[2*thid];
+	g_odata[2*thid+1] = data[2*thid+1];
+
+}
 
 void your_histogram_and_prefixsum(const float* const d_logLuminance,
                                   unsigned int* const d_cdf,
@@ -89,16 +212,56 @@ void your_histogram_and_prefixsum(const float* const d_logLuminance,
                                   const size_t numCols,
                                   const size_t numBins)
 {
-  //TODO
-  /*Here are the steps you need to implement
-    1) find the minimum and maximum value in the input logLuminance channel
-       store in min_logLum and max_logLum
-    2) subtract them to find the range
-    3) generate a histogram of all the values in the logLuminance channel using
-       the formula: bin = (lum[i] - lumMin) / lumRange * numBins
-    4) Perform an exclusive scan (prefix sum) on the histogram to get
-       the cumulative distribution of luminance values (this should go in the
-       incoming d_cdf pointer which already has been allocated for you)       */
+//Compute correct grid size (i.e., number of blocks per kernel launch)
+//from the image size and and block size.
+
+  const unsigned int numPixel = numCols*numRows;
+  unsigned int numThreads = 512;
+  unsigned int numBlocks = (numPixel+numThreads-1)/numThreads;
+
+//    1) find the minimum and maximum value in the input logLuminance channel
+//       store in min_logLum and max_logLum
+
+  float * d_min, * d_max, *d_intermediate;
+  checkCudaErrors(cudaMalloc(&d_min, sizeof(float) * numBlocks));
+  checkCudaErrors(cudaMalloc(&d_max, sizeof(float) * numBlocks));
+  checkCudaErrors(cudaMalloc(&d_intermediate, sizeof(float) * numBlocks));
+
+  reduce_min<<<numBlocks, numThreads, numThreads * sizeof(float)>>>(d_intermediate, d_logLuminance, numPixel);
+  reduce_min<<<1, numBlocks, numBlocks * sizeof(float)>>>(d_min, d_intermediate, numBlocks);
+  reduce_max<<<numBlocks, numThreads, numThreads * sizeof(float)>>>(d_intermediate, d_logLuminance, numPixel);
+  reduce_max<<<1, numBlocks, numBlocks * sizeof(float)>>>(d_max, d_intermediate, numBlocks);
+
+  cudaMemcpy(&min_logLum, d_min, sizeof(float), cudaMemcpyDeviceToHost);
+  cudaMemcpy(&max_logLum, d_max, sizeof(float), cudaMemcpyDeviceToHost);
+
+  cudaFree(d_intermediate);
+  cudaFree(d_min);
+  cudaFree(d_max);
+
+//  2) subtract them to find the range
+  const float range_logLum = max_logLum - min_logLum;
+  printf("gpu min: %f\ngpu max: %f\ngpu range: %f\n", min_logLum, max_logLum, range_logLum);
+
+  //    3) generate a histogram of all the values in the logLuminance channel using
+  //       the formula: bin = (lum[i] - lumMin) / lumRange * numBins
+  unsigned int *h_histo = new unsigned int[numBins];
+  checkCudaErrors(cudaMemset(d_cdf, 0, sizeof(unsigned int) * numBins));
+
+  histogram<<<numBlocks, numThreads>>>(d_cdf, d_logLuminance, min_logLum, range_logLum, numBins, numPixel);
+  checkCudaErrors(cudaMemcpy(h_histo, d_cdf, sizeof(unsigned int)*numBins, cudaMemcpyDeviceToHost));
+
+  //    4) Perform an exclusive scan (prefix sum) on the histogram to get
+  //       the cumulative distribution of luminance values (this should go in the
+  //       incoming d_cdf pointer which already has been allocated for you)
+  numThreads = numBins/2;
+  numBlocks = 1;
+  hillis<<<numBlocks, numThreads, 2*numThreads*sizeof(unsigned int)>>>(d_cdf, 2*numThreads);
+
+  checkCudaErrors(cudaMemcpy(h_histo, d_cdf, sizeof(unsigned int)*numBins, cudaMemcpyDeviceToHost));
+
+
+
 
 
 }

@@ -103,8 +103,8 @@
 #include "utils.h"
 #include <stdio.h>
 
-#define MAX(A,B) A>B ? A : B
-#define MIN(A,B) A<B ? A : B
+#define MAX(A,B) (A>B ? A : B)
+#define MIN(A,B) (A<B ? A : B)
 
 __global__
 void gaussian_blur(const unsigned char* const inputChannel,
@@ -139,8 +139,8 @@ void gaussian_blur(const unsigned char* const inputChannel,
     for (int filter_c = -filterWidth/2; filter_c <= filterWidth/2; ++filter_c) {
 	//Find the global image position for this filter position
 	//clamp to boundary of the image
-	  int image_r = MIN(numRows - 1, (MAX(rowIdx + filter_r, 0)));
-	  int image_c = MIN(numCols - 1, (MAX(colIdx + filter_c, 0)));
+	  int image_r = MIN(numRows - 1, MAX(rowIdx + filter_r, 0));
+	  int image_c = MIN(numCols - 1, MAX(colIdx + filter_c, 0));
 
 	  float image_value = static_cast<float>(inputChannel[image_r * numCols + image_c]);
 	  float filter_value = filter[(filter_r + filterWidth/2) * filterWidth + filter_c + filterWidth/2];
@@ -295,7 +295,6 @@ void your_gaussian_blur(const uchar4 * const h_inputImageRGBA, uchar4 * const d_
   cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
 
   //TODO: Call your convolution kernel here 3 times, once for each color channel.
-  printf("Adding RED\n");
   gaussian_blur<<<gridSize, blockSize>>>(d_red, d_redBlurred, numRows, numCols, d_filter, filterWidth);
   gaussian_blur<<<gridSize, blockSize>>>(d_green, d_greenBlurred, numRows, numCols, d_filter, filterWidth);
   gaussian_blur<<<gridSize, blockSize>>>(d_blue, d_blueBlurred, numRows, numCols, d_filter, filterWidth);
