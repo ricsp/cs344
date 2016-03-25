@@ -22,9 +22,9 @@ if(CUDA_FOUND)
   # about this compiler argument
   set(CUDA_NVCC_FLAGS "
   -ccbin /usr/bin/g++; 
-  -gencode;arch=compute_30,code=sm_30;  
-  -gencode;arch=compute_35,code=sm_35;
-  -gencode;arch=compute_35,code=compute_35;
+  #-gencode;arch=compute_30,code=sm_30;  
+  #-gencode;arch=compute_35,code=sm_35;
+  #-gencode;arch=compute_35,code=compute_35;
   -gencode;arch=compute_20,code=sm_20; 
   #-gencode;arch=compute_11,code=sm_11; 
   #-gencode;arch=compute_12,code=sm_12;
@@ -46,6 +46,8 @@ if(CUDA_FOUND)
   add_subdirectory("Problem Sets/Problem Set 4")
   #add_subdirectory("Problem Sets/Problem Set 5")
   #add_subdirectory("Problem Sets/Problem Set 6")
+  
+  CUDA_ADD_EXECUTABLE(transpose "./Lesson\ Code\ Snippets/Lesson\ 5\ Code\ Snippets/transpose.cu")
 else(CUDA_FOUND)
   message("CUDA is not installed on this system.")
 endif()

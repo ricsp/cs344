@@ -119,6 +119,56 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>[Targets]/[exe] transpose</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose//transpose.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Lesson Code Snippets/Lesson 5 Code Snippets/transpose.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose//transpose.cu</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/Lesson Code Snippets/Lesson 5 Code Snippets/transpose.cu</location>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/Source Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/Header Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/CMake Rules</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/Resources</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/Object Files</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>[Targets]/[exe] transpose/Object Files/transpose_generated_transpose.cu.o</name>
+			<type>1</type>
+			<location>/home/rspica/Repositories/cs344/CMakeFiles/transpose.dir/./Lesson_Code_Snippets/Lesson_5_Code_Snippets/./transpose_generated_transpose.cu.o</location>
+		</link>
+		<link>
 			<name>[Targets]/[exe] HW1</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
